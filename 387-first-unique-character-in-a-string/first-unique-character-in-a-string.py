@@ -1,13 +1,13 @@
+from collections import defaultdict
+
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        # count frequencies of each character
-        freq = {}
-        for ch in s:
-            freq[ch] = freq.get(ch, 0) + 1
-        
-        # find first unique
-        for i, ch in enumerate(s):
-            if freq[ch] == 1:
+        count =defaultdict(int)
+
+        for c in s:
+            count[c]+=1
+
+        for i ,c in enumerate(s):
+            if count[c]==1:
                 return i
-        
-        return -1
+        return-1
